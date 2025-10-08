@@ -1,0 +1,488 @@
+$dark-gradient: linear-gradient(135deg, #552583 0%, #FDB927 50%, #552583 100%);
+
+:host {
+    --ion-background-color: transparent; 
+    background: $dark-gradient;
+    color: #ffffff; 
+}
+
+ion-content {
+    --background: transparent;
+    background: $dark-gradient !important;
+    padding-top: 0 !important; 
+    --padding-start: 16px; /* Layout Padding */
+    --padding-end: 16px;
+    --padding-top: 10px;
+    color: #ffffff;
+}
+
+.page-bg {
+    --background: transparent;
+    background: $dark-gradient !important;
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+ion-header {
+    background: transparent; 
+    &::after { background-image: none !important; } 
+}
+
+ion-toolbar {
+    --background: transparent;
+    --min-height: 52px; /* Adjusted height for better look */
+    --border-color: transparent;
+    --box-shadow: none;
+    padding: 0 10px;
+}
+
+.icon-btn, 
+ion-toolbar ion-icon {
+    font-size: 30px; /* Smaller icons for clean look */
+    color: #000000; /* White icons on dark background */
+}
+
+.nike-logo {
+    height: 45px; 
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 800; /* BOLD */
+    color: #ffffff; 
+    margin: 15px 0 10px 0;
+}
+
+.category-buttons {
+    display: flex;
+    overflow-x: scroll;
+    padding-bottom: 15px; 
+}
+
+.category-button {
+    --background: rgba(255, 255, 255, 0.1); 
+    --color: #ffffff; 
+    font-weight: 700; /* BOLD */
+    border-radius: 8px;
+    margin-right: 8px;
+    padding: 0 15px;
+    height: 35px;
+    box-shadow: none;
+
+    &.active {
+        --background: #FDB927; /* Gold accent */
+        --color: #000000;
+    }
+}
+
+.shoe-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 12px;
+    padding: 0;
+}
+
+.shoe-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1.5;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1); /* Translucent background */
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px; 
+    
+    .buy-btn-icon {
+        --background: #FDB927; 
+        --color: #000000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    .listing-info {
+        .type { 
+            font-weight: 700; /* BOLD */
+            color: #ccc; 
+        }
+        .name { 
+            font-weight: 800; /* BOLD */
+            color: #ffffff; 
+        }
+        .price { 
+            font-weight: 900; /* BOLD */
+            color: #FDB927; 
+        } 
+    }
+}
+
+/* --- FEATURED ITEM (Full-Width Card) --- */
+.featured-shoe-item {
+    grid-column: 1 / -1; /* Spans full width */
+    aspect-ratio: unset; 
+    height: 250px; 
+    padding: 20px; 
+
+    .listing-info {
+        .name { 
+            font-size: 1.1rem; 
+        }
+        .price { 
+            font-size: 1.2rem; 
+        } 
+    }
+    
+    .buy-btn-icon {
+        height: 40px;
+        width: 40px;
+        font-size: 20px;
+    }
+}
+
+/* ======================================================= */
+/* 5. SIDE MENU STYLING (Adjusted for Dark Theme) */
+/* ======================================================= */
+
+// Define the gradient (ensure this is available, or redefine if in a different scope)
+$dark-gradient: linear-gradient(135deg, #552583 0%, #FDB927 50%, #d16ba5 100%);
+
+ion-menu { 
+    --background: transparent; /* Make menu transparent to allow ion-content to show gradient */
+}
+
+// Apply the gradient to the menu's content area
+ion-menu ion-content { 
+    --background: transparent;
+    background: $dark-gradient !important; /* Apply the gradient here */
+    color: #ffffff;
+    padding-top: 20px; /* Add some top padding for the profile image */
+}
+
+/* === PROFILE HEADER === */
+.profile-header {
+    background: transparent !important; /* Ensure no conflicting background */
+    color: #ffffff;
+    margin-top: 0px; /* Adjust margin as needed */
+    padding: 10px 0;
+    text-align: center; /* Center profile content */
+    
+    .profile-avatar {
+        width: 100px; /* Smaller image size (was 80px in some versions, 120px in image) */
+        height: 100px;
+        border-radius: 50%; /* Make it perfectly round */
+        object-fit: cover; 
+        margin: 0 auto 10px auto; /* Center the image and add bottom margin */
+        border: 3px solid #000000; /* Gold border around profile pic */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+    }
+
+    h2 { 
+        font-size: 1.1rem; 
+        font-weight: 700; 
+        color: #000000; 
+        margin-bottom: 5px;
+    }
+    p { 
+        font-size: 0.85rem; 
+        font-weight: 500; 
+        color: #ddd; 
+    }
+}
+
+/* === MENU ITEM STYLING === */
+ion-item {
+    --background: rgba(255, 255, 255, 0.08); /* Slightly more translucent than before */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Slightly more visible border */
+    border-radius: 10px;
+    margin: 8px 15px; /* Add horizontal margin to items */
+    --inner-padding-end: 12px;
+    padding-left: 15px; /* Consistent left padding */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Clearer shadow for depth */
+
+    ion-icon { 
+        color: #000000; /* Gold icons */
+        font-size: 27px; /* Slightly larger icon */
+        margin-right: 15px;
+    }
+    ion-label { 
+        font-weight: 700; 
+        color: #000000; 
+        font-size: 1rem;
+    }
+}
+
+/* === LOGOUT BUTTON === */
+.logout-btn {
+    --background: #FDB927;
+    --color: #000000;
+    border: none; /* Remove border, as button itself has strong background */
+    border-radius: 10px;
+    font-weight: 800;
+    margin: 20px 15px 15px 15px; /* Add horizontal margin and more vertical spacing */
+    height: 48px; /* Taller button */
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+// Ensure no elements inside the menu list have conflicting backgrounds
+ion-menu ion-list,
+ion-menu .ion-margin-top {
+    background: transparent !important;
+}
+
+/* src/app/home/home.page.scss */
+
+ion-header {
+  ion-toolbar {
+    --background: #fff;
+    --border-color: transparent;
+  }
+
+  .nike-logo {
+    font-size: 24px;
+    color: #000;
+  }
+}
+
+.search-bar-toolbar {
+  --background: #fff;
+  ion-searchbar {
+    --background: #f4f4f4;
+    border-radius: px;
+    padding: 0 16px;
+  }
+}
+
+ion-content {
+  // Main gradient background matching the image
+  &.background-gradient {
+    --background: linear-gradient(
+      180deg,
+      #5f00a5 0%,
+      #8d10b7 20%,
+      #f5b500 80%,
+      #ffa500 100%
+    );
+  }
+}
+
+.shoe-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 250px; // Fixed height for visual consistency
+  margin-bottom: 35px;
+  margin-top: -20px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  .shoe-image {
+    width: 90%;
+    max-height: 100px;
+    object-fit: contain;
+    margin: 0 auto 10px;
+    transform: rotate(-15deg) translateY(-20px);
+    filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.4));
+  }
+
+  .shoe-details {
+    padding: 0;
+    color: #fff;
+    text-align: left;
+
+    .shoe-name {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin: 0;
+    }
+
+    .shoe-price {
+      font-size: 1.2em;
+      margin: 4px 0 10px;
+      font-weight: 500;
+    }
+  }
+}
+
+/* home.page.scss - Adjusting Card Layout */
+
+.shoe-img {
+    // ⬇️ KEY FIXES: Positioning the shoe
+    width: 90%;
+    max-height: 100px; // Give it a max height
+    object-fit: contain;
+    margin: 0 auto;
+    position: relative; // Makes it stack correctly inside the card
+    z-index: 5; // Ensure it appears above the background (shoe-bg)
+    
+    // Use 'translateY' to lift the image up into the top half of the card
+    transform: rotate(-15deg) translateY(-20px); 
+    filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.4));
+}
+
+.shoe-info {
+    // ⬇️ KEY FIXES: Positioning the info/button area
+    position: relative;
+    z-index: 10; // Ensure info is always on top of the image/background
+    padding: 8px; // Small padding
+    background: rgba(255, 255, 255, 0.2); // Optional: Slight overlay to define the area
+    // ... (rest of the button and text styles remain the same)
+}
+
+.shoe-price {
+    // Ensuring the text doesn't take too much space
+    margin: 0 0 6px 0 !important; 
+}
+
+/* home.page.scss - Optimized Button and Info Area */
+
+.shoe-card {
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between; 
+  
+  height: 220px; // Keep this consistent for row alignment
+  // ... (other card styles)
+}
+
+.shoe-img {
+    // Keep the image lifted up, as fixed in the last step
+    transform: rotate(-15deg) translateY(-20px); 
+    // ... (other image styles)
+}
+
+.shoe-info {
+    position: relative;
+    z-index: 10;
+    padding: _5px 8px 8px; // ⬇️ Reduced TOP padding to bring content up
+    // ... (other info styles)
+    border-radius: 10px;
+    margin-top: -50px;
+    margin-bottom: -7px;
+    backdrop-filter: blur(030px);
+    box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2);
+    color: #000000;
+    font-weight: 600;
+
+    .shoe-name {
+        margin: 0 0 10px 0; // ⬇️ Reduced margin below the name
+        font-size: 0.9em;
+        
+    }
+    
+    .shoe-price {
+        margin: 0 0 0px 0 !important; // ⬇️ Reduced margin below the price
+        font-size: 1.1em;
+    }
+}
+
+.page-bg {
+  --background: linear-gradient(135deg, #552583 0%, #FDB927 50%, #d16ba5 100%);
+}
+
+/* Grid layout */
+.shoe-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+
+/* Card style */
+.shoe-card {
+  position: relative;
+  background: rgba(121, 121, 121, 0.834);
+  border-radius: 20px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Shoe image */
+.shoe-img {
+  width: 100%;
+  height: 110px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Text styles */
+.shoe-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #000000;
+  margin-bottom: 2px;
+}
+
+.shoe-price {
+  color: #4dff6e;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+/* Button group (stacked vertically) */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+
+/* Add to Cart button */
+.add-btn {
+  --background: #fff;
+  --border-color: #111;
+  --color: #000; /* <-- changed from white to black */
+  --border-width: 1px;
+  border-radius: 50px;
+  font-weight: 500;
+  width: 90%;
+  text-transform: none;
+}
+
+
+/* Buy Now button */
+.buy-btn {
+  --background: #111;
+  --color: #fff;
+  border-radius: 50px;
+  font-weight: 600;
+  width: 90%;
+  text-transform: none;
+}
+
+/* Force black text on Add to Cart button */
+ion-button.add-btn {
+  --background: #fff;
+  --border-color: #111;
+  --border-width: 1px;
+  --color: #000 !important; /* Force black text */
+  border-radius: 50px;
+  font-weight: 600;
+  width: 90%;
+  text-transform: none;
+
+  /* Optional - make sure inner text stays black even in Ionic shadow DOM */
+  color: #000 !important;
+}
+
+ion-button.add-btn::part(native) {
+  color: #000 !important;
+}
+
+// 🔍 Search Bar Styling
+ion-searchbar {
+  --background: #ffffff !important; /* ✅ pure white background */
+  --color: #000000; /* black text */
+  --icon-color: #888; /* grey search icon */
+  --placeholder-color: #888;
+  --clear-button-color: #555;
+
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  margin: 8px 16px;
+}
+

@@ -1,0 +1,131 @@
+<ion-menu contentId="main-content" side="start" menuId="main-menu">
+  <ion-content class="ion-padding">
+    <div class="profile-header ion-padding-vertical ion-text-center">
+      <img src="assets/aizen-profile.jpg" alt="Aizen Bautista" class="profile-avatar" />
+      <h2 class="ion-no-margin">Aizen Bautista</h2>
+      <p class="ion-no-margin">aizenbautista@gmail.com</p>
+    </div>
+
+    <ion-list lines="none">
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/home" detail="false">
+          <ion-icon name="home-outline" slot="start"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/orders" detail="false">
+          <ion-icon name="cube-outline" slot="start"></ion-icon>
+          <ion-label>Orders</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/about-us" detail="false">
+          <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+          <ion-label>About Us</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/terms" detail="false">
+          <ion-icon name="document-text-outline" slot="start"></ion-icon>
+          <ion-label>Terms of Use</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/privacy" detail="false">
+          <ion-icon name="shield-checkmark-outline" slot="start"></ion-icon>
+          <ion-label>Privacy Policy</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="false">
+        <ion-item routerLink="/delete-account" detail="false">
+          <ion-icon name="trash-outline" slot="start"></ion-icon>
+          <ion-label>Delete Account</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+
+    <div class="ion-margin-top ion-padding-horizontal">
+      <ion-button expand="block" (click)="logout()" class="logout-btn">
+        Log out
+        <ion-icon name="log-out-outline" slot="end"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<!-- ✅ MAIN PAGE CONTENT -->
+<div id="main-content">
+  <ion-header translucent="true">
+    <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false">
+          <ion-icon name="menu-outline" class="icon-btn"></ion-icon>
+        </ion-menu-button>
+      </ion-buttons>
+
+      <ion-title>
+        <img src="assets/nike-logo.png" alt="Nike Logo" class="nike-logo" />
+      </ion-title>
+
+      <ion-buttons slot="end">
+        <ion-button fill="clear" (click)="toggleSearch()">
+          <ion-icon slot="icon-only" name="search-outline" class="icon-btn"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" (click)="openCart()">
+          <ion-icon slot="icon-only" name="cart-outline" class="icon-btn"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+
+    <ion-toolbar *ngIf="showSearchBar" color="transparent">
+      <ion-searchbar
+        [(ngModel)]="searchTerm"
+        placeholder="Search shoes"
+        (ionInput)="filterShoes()"
+      ></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content fullscreen class="page-bg">
+    <div class="shoe-grid">
+      <div class="shoe-card" *ngFor="let shoe of filteredShoes">
+        <img [src]="shoe.image" alt="{{ shoe.name }}" class="shoe-img" />
+
+        <div class="shoe-info">
+          <p class="shoe-name">{{ shoe.name }}</p>
+          <p class="shoe-price">${{ shoe.price }}</p>
+
+          <div class="button-group">
+            <ion-button
+              fill="outline"
+              color="dark"
+              size="small"
+              expand="block"
+              class="add-btn"
+              (click)="addToCart(shoe)"
+            >
+              Add to Cart
+            </ion-button>
+
+            <ion-button
+              fill="solid"
+              color="dark"
+              size="small"
+              expand="block"
+              class="buy-btn"
+              (click)="buyNow(shoe)"
+            >
+              Buy Now
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</div>
